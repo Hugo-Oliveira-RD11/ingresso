@@ -9,5 +9,6 @@ public class Movie
     [DataType(DataType.MultilineText)]
     public string? Description { get; set; }
     public uint Minutes { get; set; }
+    
     public ICollection<Horario> horarios { get; set; }
 }

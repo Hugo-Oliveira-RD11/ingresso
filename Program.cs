@@ -1,3 +1,6 @@
+using Ingresso.Core.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ConnectionDbContext>(op => op.UseNpgsql(builder.Configuration.GetConnectionString("Postgress")));
 
 var app = builder.Build();
 
