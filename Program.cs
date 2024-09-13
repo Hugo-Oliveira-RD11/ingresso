@@ -1,4 +1,5 @@
 using Ingresso.Core.Data;
+using Ingresso.Core.Infra;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ConnectionDbContext>(op => op.UseNpgsql(builder.Configuration.GetConnectionString("Postgress")));
+builder.Services.AddTransient<ICorpRepository,CorpRepository>();
 
 var app = builder.Build();
 

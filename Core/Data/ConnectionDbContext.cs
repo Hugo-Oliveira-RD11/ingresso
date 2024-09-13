@@ -15,6 +15,7 @@ public class ConnectionDbContext : DbContext
     public DbSet<Movie> Movies { get; set; }
     public DbSet<Preco> Precos { get; set; }
     public DbSet<Sala> Salas { get; set; }
+    public DbSet<Corp> Corps { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
